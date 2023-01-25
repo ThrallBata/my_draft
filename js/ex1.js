@@ -460,3 +460,18 @@ for(let i=0; i<10;++i)
 console.log(Math.max(10, 5))
 
 console.log(Math.pow(10, 5))
+
+let str1 = 'hi heLlo bItcH';
+
+for(let ch of 'helelo')
+    console.log(ch)
+
+console.log(str1.toUpperCase());
+console.log(str1.toLowerCase());
+console.log(str1.indexOf('bItcH'));
+
+let str_22 = '    ssgg s sgs wege eg e    1           ';
+console.log(str_22.trim());
+
+let str_5 = 'Hi';
+console.log(str_5.repeat(25));
