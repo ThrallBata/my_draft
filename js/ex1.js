@@ -475,3 +475,40 @@ console.log(str_22.trim());
 
 let str_5 = 'Hi';
 console.log(str_5.repeat(25));
+
+
+let guests = new Set();
+
+let alex = {name: 'Alexey', old:22};
+let aleg = {name: 'Aleg', old:27};
+let olga = {name: 'olga', old:21};
+
+guests.add(alex);
+guests.add(aleg);
+guests.add(alex);
+guests.add(olga);
+
+for (let guest of guests) {
+    console.log(guest.name);
+}
+
+let cars = ["yaguar", 'porshe', 'mersedes'];
+
+let [car11, car22, car33] = cars;
+console.log(car11, car22, car33)
+
+
+let book_228 = {
+    title: 'Муму',
+    author: 'Тургенев',
+    nPages: 228,
+    price: 100
+};
+
+let {title, author: a24, price: p=0} = book_228;
+console.log(title, a24, p);
+
+
+let items = [1,5,7,9,2,10000];
+let diggs = [228355,58,-4634,-596];
+console.log(Math.max(...items, 100, 54454, ...diggs))
