@@ -512,3 +512,9 @@ console.log(title, a24, p);
 let items = [1,5,7,9,2,10000];
 let diggs = [228355,58,-4634,-596];
 console.log(Math.max(...items, 100, 54454, ...diggs))
+
+//Hi notebook
+let grind = [ 1,4,5];
+
+
+//
