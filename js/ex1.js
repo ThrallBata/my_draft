@@ -516,5 +516,75 @@ console.log(Math.max(...items, 100, 54454, ...diggs))
 //Hi notebook
 let grind = [ 1,4,5];
 
+function showMessage1(msg) {
+    console.log(msg);
+}
 
-//
+console.log( showMessage1.name)
+
+console.log( showMessage1.length)
+
+function func1(a, b, r) {
+    console.log(a, b, r);
+}
+
+console.log( func1.length);
+
+function funcCount() {
+    console.log("вызов функции: " + ++funcCount.counter);
+}
+
+funcCount.counter = 0;
+
+funcCount();
+funcCount();
+
+
+function createCounter() {
+    function counter() {
+        return counter.count++;
+    }
+
+    counter.count = 0;
+    return counter;
+}
+
+let counter1 = createCounter();
+console.log( counter1());
+console.log( counter1());
+console.log( counter1());
+
+let myMath = {
+    nameObj: "myMath",
+
+    sum(...args) {
+        return this.nameObj+': '+args.reduce((val, prevVal) => prevVal += val, 0);
+    }
+};
+
+let sum1 = myMath.sum;
+console.log( sum1.apply(myMath, [1,7,8,9,6]) );
+
+let sum2 = myMath.sum.bind(myMath, 100);
+console.log( sum2(1,7,8,9,6));
+
+
+let getName = function Name(name) {
+    if(name) return name;
+    else return Name("no name");
+};
+
+console.log( getName("Ivan") );
+
+let get = getName;
+getName = null;
+console.log( get() );
+
+
+let sumTwo = new Function('a', 'b', 'return a+b;');
+console.log( sumTwo(1, 5));
+
+
+setTimeout(funcCount, 2000); 
+
+
