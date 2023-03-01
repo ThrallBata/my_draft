@@ -1,16 +1,20 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+def arithmetic_sequence_elements(a, d, n):
+    list_progress = []
+    for i in range(n):
+        list_progress.append(str(a))
+        a += d
+    return ', '.join(list_progress)
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+print(arithmetic_sequence_elements(1, 2, 5))
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+
+def arithmetic_sequence_elements1(a, r, n):
+    return ", ".join((str(a+r*i) for i in range(n)))
+
+
+print(arithmetic_sequence_elements(1, 2, 5))
+
+
+def min_price(coins):
+    pass
