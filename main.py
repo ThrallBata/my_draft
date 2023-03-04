@@ -16,5 +16,35 @@ def arithmetic_sequence_elements1(a, r, n):
 print(arithmetic_sequence_elements(1, 2, 5))
 
 
-def min_price(coins):
-    pass
+def alphanumeric(password):
+    result = False
+    for element in password:
+        if element in ['!','@','#','$','%','^','&','*','(',')', ' ','<','>', '|', '_', '+', '=', '-']:
+            result = False
+        elif element in str(range(0, 10)):
+            result = True
+
+    return result
+
+
+#print(alphanumeric("hell0 world_"))
+#print(alphanumeric("4Y>qkqlWSWBU"))
+
+
+def alphanumeric1(password):
+    if password.isalnum() == True:
+        return True
+    return False
+
+#print(alphanumeric1("0fw787"))
+#print(alphanumeric1("Y34535>qkqlWSWBU"))
+
+
+def password_validation(regex):
+    if (regex.isalnum() == True) and (regex.lower() == regex) == False:
+        return True
+    return False
+
+regex = 'Fjd3IR9'
+#print(regex.lower())
+print(password_validation('fjd3IR9'))
