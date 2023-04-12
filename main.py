@@ -107,10 +107,102 @@ def choose_best_sum(t, k, ls):
 
 
 xs = [100, 76, 56, 44, 89, 73, 68, 56, 64, 123, 2333, 144, 50, 132, 123, 34, 89]
-# print(choose_best_sum(230, 4, xs))
+# print(choose_best_sum(230, 2, xs))
 #
 #
 # for i in itertools.combinations(xs, 3):
 #     if sum(i) <= 230:
 #         print(i)
 #         print(sum(i))
+
+
+# def twoSum(nums, target):
+    # count = -1
+    # for num in nums:
+    #     count += 1
+    #     for i in range(len(nums)):
+    #         if count != i and (num + nums[i]) == target:
+    #             res_list = [count, i]
+    #             return res_list
+    # checked = {}
+    # i = 0
+    # while target - nums[i] not in checked:
+    #     checked[nums[i]] = i
+    #     i += 1
+    #
+    # return [checked[target - nums[i]], i]
+
+    # try:
+    #     return max(sum(i) for i in nums if sum(i) == target)
+    # except:
+    #     return None
+
+
+# xs = [7, 5, 4, 8, 7, 6, 9, 10, 12, 33, 14, 50, 2, 1, 3, 8]
+# print(twoSum(xs, 83))
+
+
+def arithmeticTriplets(nums, diff):
+    ans = 0
+    n = len(nums)
+    for i in range(n):
+        if nums[i] + diff in nums and nums[i] + 2 * diff in nums:
+            ans += 1
+
+    return ans
+
+
+nums =[4,5,6,7,8,9]
+# print(arithmeticTriplets(nums, 2))
+
+
+def distinctAverages(nums):
+    res = {}
+    for i in range(len(nums)//2):
+        res[(max(nums) + min(nums))/2] = i
+        nums.remove(max(nums))
+        nums.remove(min(nums))
+    return len(res)
+
+
+nums = [4,1,4,0,3,5]
+
+# print(distinctAverages(nums))
+
+
+def distinctAverages1(nums):
+    res = set()
+    nums.sort()
+    while len(nums) != 0:
+        s = (nums.pop(0) + nums.pop(-1))/2
+        res.add(s)
+    return len(res)
+
+nums1 = [4,1,4,0,3,5]
+
+# print(distinctAverages1(nums1))
+
+
+def romanToInt(s):
+    roman = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
+    res = [10000]
+    i = 0
+    for elem in s:
+        if res[i] < roman[elem]:
+            m = roman[elem] - res.pop()
+            res.append(m)
+        else:
+            res.append(roman[elem])
+            i += 1
+    return sum(res)-10000
+
+
+s = "MCMXCIV"
+
+print(romanToInt(s))
+
+
+
+
+
+
