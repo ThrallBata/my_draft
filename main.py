@@ -202,7 +202,33 @@ s = "MCMXCIV"
 print(romanToInt(s))
 
 
+def validateStackSequences(pushed, popped):
+    stack = []
+    res_list = []
+    i = 0
+    for elem in pushed:
+        if elem == popped[i]:
+            stack.append(elem)
+            res = stack.pop()
+            res_list.append(res)
+            i += 1
+            j = i
+            try:
+                while stack[-1] == popped[j]:
+                    res = stack.pop()
+                    res_list.append(res)
+                    j += 1
+            except IndexError:
+                pass
+        else:
+            stack.append(elem)
+    for j in range(len(stack)):
+        res = stack.pop()
+        res_list.append(res)
+    print(popped, res_list)
 
+    return True if popped == res_list else False
 
-
-
+print(validateStackSequences([1,2,3,4,5], [4,5,3,2,1]))
+print(validateStackSequences([2,1,0], [1,2,0]))
+print(validateStackSequences([2,3,0,1],[0,3,2,1]))
