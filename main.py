@@ -229,6 +229,16 @@ def validateStackSequences(pushed, popped):
 
     return True if popped == res_list else False
 
+
 print(validateStackSequences([1,2,3,4,5], [4,5,3,2,1]))
 print(validateStackSequences([2,1,0], [1,2,0]))
 print(validateStackSequences([2,3,0,1],[0,3,2,1]))
+
+result = []
+maxcandies = max(candies)
+    for i in range(len(candies)):
+	    if candies[i]+extraCandies >= maxcandies:
+		    result.append(True)
+		else:
+			result.append(False)
+	return result
