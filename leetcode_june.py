@@ -14,14 +14,14 @@ class Solution:
         min_elem = min(strs, key=len)
         min_elem_copy = min_elem
         strs.remove(min_elem)
-        print(strs)
+
         for elem in strs:
-            print(elem)
+
             count = -1
             while True:
                 count += 1
                 count_elem = len(min_elem) - count
-                print(min_elem_copy, count_elem)
+
                 min_elem_copy = min_elem[:count_elem]
                 if min_elem_copy in elem:
                     res_list.append(min_elem_copy)
@@ -49,7 +49,6 @@ def longestCommonPrefix(self, strs):
         count = -1
         min_elem = min(strs, key=len)
         strs.remove(min_elem)
-        print(strs)
         for elem in strs:
             if min_elem in elem:
                 return list(min_elem)
@@ -59,3 +58,61 @@ def longestCommonPrefix(self, strs):
                     compare = min_elem[len(min_elem) - count]
                     if compare in elem:
                         return list(compare)
+
+
+def BinarySearch(nums, target):
+    first = 0
+    last = len(nums) - 1
+    index = -1
+    while (first <= last) and (index == -1):
+        mid = (first+last)//2
+        res = mid #удалить
+        if nums[mid] == target:
+            index = mid
+        else:
+            if target < nums[mid]:
+                last = mid - 1
+            else:
+                first = mid + 1#вернуть индекс и будет реальный бинарный поиск
+    # if len(nums) >= 2:
+    #     if target < nums[1] and target > nums[0]:
+    #         return 1
+    # if target <= nums[-1]:
+    #     return res
+    # else:
+    #     return res + 1
+    if nums[res] < target:
+        return res +1
+    else:
+        return res
+
+
+
+print(BinarySearch([1,2,4,6,7], 5))
+
+
+def strStr(haystack: str, needle: str) -> int:
+    if needle in haystack:
+        count_hay = 0
+        for elem in haystack:
+            if elem == needle[0]:
+                count = count_hay + len(needle)
+                if haystack[count_hay: count] == needle:
+                    return count_hay
+            count_hay += 1
+    else:
+        return -1
+
+
+print(strStr("sabutsad", "sad"))
+
+list_12 = 'sabutsad'
+
+print(list_12[2:4])
+
+
+def strStr1(haystack: str, needle: str) -> int:
+    return haystack.find(needle)
+
+
+print(strStr1("sabutsad", "sad"))
