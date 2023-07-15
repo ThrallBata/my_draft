@@ -295,4 +295,63 @@ def isHappy(n: int) -> bool:
 
 
 
-print(isHappy(19))
+# print(isHappy(19))
+
+
+def isAnagram(s: str, t: str) -> bool:
+    if len(s) != len(t):
+        return False
+    for idx in set(s):
+        if s.count(idx) != t.count(idx):
+            return False
+    return True
+
+
+print(isAnagram('awfwfwfwf', 'awfwfwfwf'))
+
+
+
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def minDepth(self, root) -> int:
+        ...
+
+
+
+
+
+
+
+[3, 9, 20, None, None, 15, 7]
+[1,None,2,3]
+
+
+def sfsdgsdg(nums, val):
+    res = [i for i in nums if i != val]
+    return len(res)
+
+print(sfsdgsdg([3,2,2,3], 3))
+
+INPUT = [1, 2, 5, 12, 3, 5, 2, 7, 12]
+
+
+def isPalindrome(x: int):
+    inv_list = []
+    for elem in str(x):
+        if elem != '-':
+            inv_list.insert(0, elem)
+    if int(''.join(inv_list)) == x:
+        return True
+    return False
+
+
+print(isPalindrome(-12211))
+
+
+
+
+
