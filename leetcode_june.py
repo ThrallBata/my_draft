@@ -166,7 +166,6 @@ def maxProfit2(prices: list) -> int:
     count = 1
     if 0 in prices:
         prices = [i for i in prices if i != 0]
-        print(prices)
     if len(prices) == 1:
         return 0
     max_elem = max(prices[count:])
@@ -264,7 +263,6 @@ def isHappy1(n: int) -> bool:
         sum_squares = 0
         for elem in str(n):
             sum_squares += int(elem) ** 2
-            print(sum_squares)
         if sum_squares == 1:
             return True
         if sum_squares != 1:
@@ -282,7 +280,6 @@ def isHappy(n: int) -> bool:
         sum_squares = 0
         for elem in str(n):
             sum_squares += int(elem) ** 2
-            print(sum_squares)
         if sum_squares == 1:
             return True
         if sum_squares != 1 and count <= 100:
@@ -351,7 +348,50 @@ def isPalindrome(x: int):
 
 print(isPalindrome(-12211))
 
+a = b = 'Anime'
+print(a == b)
+print(id(a), id(b))
+print(a is b)
 
 
+def fizzBuzz(n: int):
+    res_list = []
+    for i in range(1, n+1):
+        if int(i) % 3 == 0 and int(i) % 5 == 0:
+            res_list.append("FizzBuzz")
+            pass
+        elif int(i) % 3 == 0:
+            res_list.append("Fizz")
+            pass
+        elif int(i) % 5 == 0:
+            res_list.append("Buzz")
+            pass
+        else:
+            res_list.append(i)
+    return res_list
 
 
+print(fizzBuzz(15))
+
+
+def lengthOfLongestSubstring(s: str) -> int:
+    buffer_list = []
+    length_list = []
+    for elem in s:
+        if elem in buffer_list:
+            length_list.append(len(buffer_list))
+            buffer_list = buffer_list[buffer_list.index(elem)+1:]
+        buffer_list.append(elem)
+    length_list.append(len(buffer_list))
+    return max(length_list)
+
+
+print(lengthOfLongestSubstring('jkghj'))
+fh = [7, 1, 5, 3, 3, 6, 4, 0, 3, 0, 0, 0]
+print(fh[fh.index(3)+1:])
+
+g = 'dsdsdsdssd'
+v = 'dsdsdsdssddsdsdsdssdewtw'
+print(v.startswith(g))
+print(v.replace(g, '', 1), 5)
+print(v.removeprefix(g))
