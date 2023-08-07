@@ -1,3 +1,4 @@
+import math
 def addTwoNumbers(l1, l2):
     list_1 = l1[::-1]
     list_2 = l2[::-1]
@@ -395,3 +396,47 @@ v = 'dsdsdsdssddsdsdsdssdewtw'
 print(v.startswith(g))
 print(v.replace(g, '', 1), 5)
 print(v.removeprefix(g))
+
+
+def myPow(x: float, n: int) -> float:
+    # if n < 0:
+    #     res = 1/x
+    #     for i in range(2, (-n)+1):
+    #         res = 1/(res**x)
+    # else:
+    #     res = x
+    #     for i in range(2, n+1):
+    #         res = res**x
+
+    return math.pow(x, n)
+
+
+print(myPow(0.00001, 2147483647))
+
+
+def lengthOfLastWord(s: str) -> int:
+    list_s = s.split()
+    return len(list_s[-1])
+
+
+s = "luffy is still joyboy"
+print(lengthOfLastWord(s))
+print(s.split())
+
+
+def majorityElement(nums: list) -> int:
+    set_nums = set(nums)
+    for elem in set_nums:
+        if nums.count(elem) > len(nums)//2:
+            return elem
+
+
+print(majorityElement([2,2,1,1,1,2,2]))
+
+
+def majorityElement1(nums: list) -> int:
+    return max(set(nums), key=nums.count)
+
+
+print(majorityElement1([2,2,1,1,1,2,2]))
+
