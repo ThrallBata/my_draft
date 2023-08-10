@@ -1,4 +1,7 @@
 import math
+import timeit
+
+
 def addTwoNumbers(l1, l2):
     list_1 = l1[::-1]
     list_2 = l2[::-1]
@@ -334,7 +337,7 @@ def sfsdgsdg(nums, val):
 
 print(sfsdgsdg([3,2,2,3], 3))
 
-INPUT = [1, 2, 5, 12, 3, 5, 2, 7, 12]
+list_nums= [1, 2, 5, 12, 3, 5, 2, 7, 12]
 
 
 def isPalindrome(x: int):
@@ -431,7 +434,7 @@ def majorityElement(nums: list) -> int:
             return elem
 
 
-print(majorityElement([2,2,1,1,1,2,2]))
+print(majorityElement([2,1,1,1,2,2]))
 
 
 def majorityElement1(nums: list) -> int:
@@ -440,3 +443,81 @@ def majorityElement1(nums: list) -> int:
 
 print(majorityElement1([2,2,1,1,1,2,2]))
 
+
+def plusOne(digits: list[int]) -> list[int]:
+    if digits == [9]:
+        return [1, 0]
+    count = 1
+    if digits[-1] == 9:
+        for elem in digits[::-1]:
+            if elem == 9:
+                digits[-count] = 0
+                count += 1
+            else:
+                break
+    if count > len(digits):
+        digits.insert(0, 1)
+        return digits
+
+    digits[-count] += 1
+    return digits
+
+
+digits = [9, 9, 9, 9, 9]
+print(plusOne(digits))
+
+import time
+startTime = time.time() # Сохранение времени запуска.
+for i in range(1000000): # Код выполняется 1 000 000 раз.
+    a, b = 42, 101
+    a = a ^ b
+    b = a ^ b
+    a = a ^ b
+print(time.time() - startTime, 'seconds')
+
+print(timeit.timeit('a, b = 42, 101; a = a ^ b; b = a ^ b; a = a ^ b'))
+print(timeit.timeit('a, b = 42, 101; temp = a; a = b; b = temp'))
+print(timeit.timeit('a, b = 42, 101; a, b = b, a'))
+
+
+def canPlaceFlowers(flowerbed: list[int], n: int) -> bool:
+    zero_count_dict = {}
+    count = 1
+    zero_row = 0
+    hole = 0
+    if (1 in flowerbed) == False:
+        if len(flowerbed) == 1:
+            hole = 1
+            return True if hole >= n else False
+        hole += len(flowerbed) - len(flowerbed) // 2
+        return True if hole >= n else False
+    for i in flowerbed:
+        if i == 1:
+            zero_count_dict[count] = zero_row
+            count += 1
+            zero_row = 0
+        else:
+            zero_row += 1
+
+    if zero_row != 0:
+        zero_count_dict[count+1] = zero_row
+
+    ready_zero_count_dict = {key: zero_count_dict[key] for key in zero_count_dict if zero_count_dict[key] >= 3}
+
+    for key in ready_zero_count_dict:
+        if ready_zero_count_dict[key] % 2 == 1:
+            hole += ready_zero_count_dict[key] // 2
+        else:
+            hole += (ready_zero_count_dict[key] / 2)-1
+    if len(flowerbed) >= 2:
+        if (flowerbed[0] == 0 and flowerbed[1] == 0) or (flowerbed[-1] == 0 and flowerbed[-2] == 0):
+            hole += 1
+        elif (flowerbed[0] == 0 and flowerbed[1] == 0) and (flowerbed[-1] == 0 and flowerbed[-2] == 0):
+            hole += 2
+    print(hole)
+    return True if hole >= n else False
+
+list_test = [1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0]
+dict11 = {1}
+print(canPlaceFlowers([1], 1))
+print((1 in [0]) == False, 52262)
