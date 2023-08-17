@@ -49,6 +49,7 @@ if min(list2, key=len) in list2[1]:
     b = min(list2, key=len)
     # print(b[:4])
 
+
 def longestCommonPrefix(self, strs):
         count = -1
         min_elem = min(strs, key=len)
@@ -216,7 +217,7 @@ nums = [2,2,3,2]
 print(singleNumber(nums))
 
 
-def longestSubarray1(nums: int) -> int:
+def longestSubarray1(nums: int):
     nums = [i for i in nums if i != 0]
     nums.pop()
     return nums
@@ -517,7 +518,44 @@ def canPlaceFlowers(flowerbed: list[int], n: int) -> bool:
     print(hole)
     return True if hole >= n else False
 
+
 list_test = [1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0]
 dict11 = {1}
 print(canPlaceFlowers([1], 1))
 print((1 in [0]) == False, 52262)
+
+
+# Пожалуйста, решите следующую простую задачу. Можно использовать любые инструменты.
+# Дано: список dict-объектов вида вида {"key": "value"}, например [{"key1": "value1"}, {"k1": "v1", "k2": "v2", "k3": "v3"}, {}, {}, {"key1": "value1"}, {"key1": "value1"}, {"key2": "value2"}].
+#
+# Напишите функцию, которая удаляет дубликаты из этого списка. Для примера выше возвращаемое значение может быть равно [{"key1": "value1"}, {"k1": "v1", "k2": "v2", "k3": "v3"}, {}, {"key2": "value2"}].
+# Обязательное условие: функция не должна иметь сложность O(n^2).
+
+
+list11 = [{"key1": "value1"}, {"k1": "v1", "k2": "v2", "k3": "v3"}, {},
+          {}, {"key1": "value1"}, {"key1": "value1"}, {"key2": "value2"}]
+
+print(len(list11[1]))
+unique_dict = {}
+
+# for elem in list11:
+#     if len(elem) > 1:
+#         for i in elem:
+#             unique_dict = unique_dict|elem
+#     else:
+#         if elem in unique_dict:
+#             pass
+#         else:
+#             unique_dict | elem
+#
+# print(unique_dict)
+
+
+import sys
+print(sys.getsizeof(['cat']))
+print(sys.getsizeof(['a much longer string than just "cat"']))
+
+letters = ['z', 'A', 'a', 'Z']
+letters.sort(key=str.lower)
+print(letters)
+
