@@ -235,3 +235,7 @@ print(validateStackSequences([2,1,0], [1,2,0]))
 print(validateStackSequences([2,3,0,1],[0,3,2,1]))
 
 result = []
+dict_ex = {"k1": "v1", "k2": '655', "k3": '8779'}
+key_dict = (dict_ex.keys())
+
+# print({**dict_ex, **key_dict})
