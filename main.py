@@ -36,9 +36,6 @@ def alphanumeric1(password):
         return True
     return False
 
-#print(alphanumeric1("0fw787"))
-#print(alphanumeric1("Y34535>qkqlWSWBU"))
-
 
 def password_validation(regex):
     if (regex.isalnum() == True) and (regex.lower() == regex) == False:
